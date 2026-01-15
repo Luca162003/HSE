@@ -4,7 +4,7 @@ import plotly.express as px
 from PIL import Image
 # --- 1. CONFIGURAZIONE ---
 
-logo_path = Image.open("/home/luca/Desktop/Pitone/HSE/logo_scuola.jpg")
+logo_path = Image.open("HSE/logo_scuola.jpg")
 
 # 2. Imposta la configurazione della pagina (deve essere il PRIMO comando Streamlit)
 st.set_page_config(
