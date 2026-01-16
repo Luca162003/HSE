@@ -90,6 +90,16 @@ if st.session_state.q_index < len(questions):
         st.rerun()
 
 # --- 6. INTERFACCIA ---
+if 'user_name' not in st.session_state:
+    st.title("Benvenuto al Simulatore HSE")
+    nome = st.text_input("Inserisci il tuo nome per iniziare:")
+    if st.button("Inizia Simulazione"):
+        if nome:
+            st.session_state.user_name = nome
+            st.rerun()
+        else:
+            st.warning("Inserisci un nome!")
+    st.stop()
 st.title("🛡️ HSE Manager Simulator")
 st.markdown("Realizzato da Luca Tognari - Scuola Superiore Sant'Anna")
 st.divider()
