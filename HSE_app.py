@@ -38,7 +38,7 @@ Ufficio Risorse Umane""",
         "answers": [
             {"label": "Riorganizzazione del lavoro (Turni e sequenze)", "full_text": "Ritengo utile intervenire attraverso una ri-organizzazione del lavoro, ridefinendo l’assegnazione dei turni e la sequenza delle operazioni di verifica.", "delta": [10, 15, 15, -5000, 5, 5]},
             {"label": "Mystery Audit (Controlli a sorpresa)", "full_text": "Suggerisco di introdurre un sistema di Mystery Audit, inviando personale incaricato a svolgere verifiche non annunciate direttamente sul campo.", "delta": [0, 0, 0, -25000, 0, 0]},
-            {"label": "Commissione d'indagine e Feedback", "full_text": "Propongo di istituire una Commissione di indagine su eventi critici e attivare un sistema di feedback strutturato ai lavoratori.", "delta": [0, 0, 0, -15000, 0, 0]},
+            {"label": "Commissione d'indagine e Feedback", "full_text": "Propongo di istituire una Commissione di indagine su eventi critici e attivare un sistema di feedback strutturato ai lavoratori.\n", "delta": [0, 0, 0, -15000, 0, 0]},
             {"label": "Sospensione lavoratori infortunati", "full_text": "Una possibile soluzione potrebbe essere la sospensione temporanea dalla mansione per quei lavoratori che hanno registrato infortuni ricorrenti.", "delta": [0, 0, 0, 0, 0, 0]}
         ]
     },
@@ -174,7 +174,7 @@ if st.session_state.q_index < len(questions):
     with col1:
         # Opzione 1
         st.markdown(f"**A)** {ans[0]['full_text']}")
-        if st.button(f"Scegli: {ans[0]['label']}", key="btn0", use_container_width=True):
+        if st.button(f"{ans[0]['label']}", key="btn0", use_container_width=True):
             apply_delta(ans[0]["delta"])
             st.session_state.q_index += 1
             st.rerun()
@@ -183,7 +183,7 @@ if st.session_state.q_index < len(questions):
         
         # Opzione 3
         st.markdown(f"**C)** {ans[2]['full_text']}")
-        if st.button(f"Scegli: {ans[2]['label']}", key="btn2", use_container_width=True):
+        if st.button(f"{ans[2]['label']}", key="btn2", use_container_width=True):
             apply_delta(ans[2]["delta"])
             st.session_state.q_index += 1
             st.rerun()
@@ -191,7 +191,7 @@ if st.session_state.q_index < len(questions):
     with col2:
         # Opzione 2
         st.markdown(f"**B)** {ans[1]['full_text']}")
-        if st.button(f"Scegli: {ans[1]['label']}", key="btn1", use_container_width=True):
+        if st.button(f"{ans[1]['label']}", key="btn1", use_container_width=True):
             apply_delta(ans[1]["delta"])
             st.session_state.q_index += 1
             st.rerun()
@@ -200,7 +200,7 @@ if st.session_state.q_index < len(questions):
 
         # Opzione 4
         st.markdown(f"**D)** {ans[3]['full_text']}")
-        if st.button(f"Scegli: {ans[3]['label']}", key="btn3", use_container_width=True):
+        if st.button(f"{ans[3]['label']}", key="btn3", use_container_width=True):
             apply_delta(ans[3]["delta"])
             st.session_state.q_index += 1
             st.rerun()
@@ -223,18 +223,45 @@ else:
     
     with colA:
         st.subheader("Performance Aziendali")
-        radar_data = {k: v for k, v in st.session_state.stats.items() if k != "BUDGET"}
-        df = pd.DataFrame(dict(r=list(radar_data.values()), theta=list(radar_data.keys())))
-        fig = px.line_polar(df, r='r', theta='theta', line_close=True)
-        fig.update_traces(fill='toself', line_color='#1f77b4')
-        fig.update_layout(polar=dict(radialaxis=dict(visible=True, range=[0, 130], dtick=15, tickfont=dict(color="black"),  tickfont_size=12, tickcolor="#000000", linecolor="#000000")))
+        
+       
+        data = [(k, v) for k, v in st.session_state.stats.items() if k != "BUDGET"]
+        df = pd.DataFrame(data, columns=['Metrica', 'Valore'])
+        
+        fig = px.line_polar(
+            df, 
+            r='Valore', 
+            theta='Metrica', 
+            line_close=True,
+            markers=True, 
+            range_r=[0, 130] 
+        )
+        
+        fig.update_traces(fill='toself', line_color='#1f77b4', line_width=2)
+        fig.update_layout(
+            paper_bgcolor="rgba(0,0,0,0)", 
+            polar=dict(
+                bgcolor="rgba(255, 255, 255, 0.1)", 
+                radialaxis=dict(visible=True, range=[0, 130], dtick=25, gridcolor="gray"),
+                angularaxis=dict(tickfont=dict(size=12, weight="bold"))
+            ),
+            margin=dict(t=20, b=20, l=20, r=20) 
+        )
+        
         st.plotly_chart(fig, use_container_width=True)
 
+        with st.caption(" Legenda"):
+            st.markdown("""
+            | Sigla | Descrizione |
+            | :--- | :--- |
+            | **PROD** | Produttività |
+            | **SODD** | Soddisfazione |
+            | **REP** | Reputazione |
+            | **HSE_P** | HSE Partecipazione |
+            | **HSE_C** | HSE Compliance |
+            """)
+
     with colB:
-        st.subheader("Bilancio Finale")
-        final_budget = st.session_state.stats["BUDGET"]
-        delta_budget = final_budget - 50000
-        st.metric("Budget Residuo", f"{final_budget} €", f"{delta_budget} €")
         
         st.subheader("Impatto Decisionale")
         current_stats = {k: v for k, v in st.session_state.stats.items() if k != "BUDGET"}
@@ -248,6 +275,11 @@ else:
         
         fig_bar = px.bar(df_comparison, x="Metrica", y="Valore", color="Stato", barmode="group")
         st.plotly_chart(fig_bar, use_container_width=True)
+        
+        st.subheader("Bilancio Finale")
+        final_budget = st.session_state.stats["BUDGET"]
+        delta_budget = final_budget - 50000
+        st.metric("Budget Residuo", f"{final_budget} €", f"{delta_budget} €")
         
     st.divider()
     if st.button("🔄 Ricomincia da capo", type="primary"):
