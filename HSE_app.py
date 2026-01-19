@@ -167,10 +167,7 @@ if st.session_state.q_index < len(questions):
     
     ans = q["answers"]
     
-    # Layout pulsanti: Poiché i testi delle risposte sono lunghi, 
-    # mostriamo il testo completo sopra il bottone o usiamo un layout espanso.
-    # Qui usiamo un approccio con expander per i dettagli se necessario, 
-    # ma dato che il testo è il cuore della risposta, lo mostriamo nelle colonne.
+
     
     col1, col2 = st.columns(2, gap="medium")
     
@@ -230,7 +227,7 @@ else:
         df = pd.DataFrame(dict(r=list(radar_data.values()), theta=list(radar_data.keys())))
         fig = px.line_polar(df, r='r', theta='theta', line_close=True)
         fig.update_traces(fill='toself', line_color='#1f77b4')
-        fig.update_layout(polar=dict(radialaxis=dict(visible=True, range=[0, 120])))
+        fig.update_layout(polar=dict(radialaxis=dict(visible=True, range=[0, 130], dtick=15, tickfont=dict(color="black"),  tickfont_size=12, tickcolor="#000000", linecolor="#000000")))
         st.plotly_chart(fig, use_container_width=True)
 
     with colB:
