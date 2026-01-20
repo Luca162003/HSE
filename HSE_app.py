@@ -34,7 +34,7 @@ Ti invitiamo a prestare la massima attenzione a queste problematiche. Per qualsi
 
 Cordiali saluti,
 Ufficio Risorse Umane""",
-        "delta_iniziale": [-25, -25, -5, 0, 0, 0],
+        "delta_iniziale": [-25, -25, -5, 0, -10, -10],
         "answers": [
             {"label": "Riorganizzazione del lavoro (Turni e sequenze)", "full_text": "Ritengo utile intervenire attraverso una ri-organizzazione del lavoro, ridefinendo l’assegnazione dei turni e la sequenza delle operazioni di verifica.", "delta": [10, 15, 15, -5000, 5, 5]},
             {"label": "Mystery Audit (Controlli a sorpresa)", "full_text": "Suggerisco di introdurre un sistema di Mystery Audit, inviando personale incaricato a svolgere verifiche non annunciate direttamente sul campo.", "delta": [0, 0, 0, -25000, 0, 0]},
@@ -56,7 +56,7 @@ L’uso corretto dei DPI è fondamentale per la sicurezza degli operatori e per 
 
 Cordiali saluti,
 Ufficio Risorse Umane""",
-        "delta_iniziale": [-5, -10, -5, 0, 0, 0],
+        "delta_iniziale": [-5, -10, -5, 0, -10, -10],
         "answers": [
             {"label": "Sensibilizzazione e Formazione", "full_text": "Propongo riunioni periodiche per sensibilizzare sull’importanza dei DPI e rivedere la frequenza della formazione obbligatoria.", "delta": [15, 20, 15, -10000, 10, 5]},
             {"label": "Nuova Valutazione dei Rischi", "full_text": "Avviare una nuova valutazione del rischio specifica per analizzare se le attuali misure e i DPI siano adeguati.", "delta": [-5, 0, 0, -5000, 0, 0]},
@@ -72,7 +72,7 @@ Ufficio Risorse Umane""",
 Segnalo questa circostanza per le opportune valutazioni. 
 
 Cordiali saluti""",
-        "delta_iniziale": [-10, -15, -10, 0, 0, 0],
+        "delta_iniziale": [-10, -15, -10, 0, -10, -10],
         "answers": [
             {"label": "Discussione in Riunione Periodica", "full_text": "Includere la mancata partecipazione nell'ordine del giorno della prossima riunione periodica per discuterne con i rappresentanti.", "delta": [10, 10, 10, -2000, 5, 5]},
             {"label": "Safety Walk e confronto", "full_text": "Organizzare una safety walk per esaminare le condizioni e confrontarsi direttamente con i lavoratori sul campo.", "delta": [0, 2, 2, -5000, 0, 0]},
@@ -88,7 +88,7 @@ L’episodio ha suscitato preoccupazione tra i partecipanti.
 
 Resto a disposizione per ulteriori informazioni.
 Cordiali saluti,""",
-        "delta_iniziale": [-5, -10, -15, 0, 0, 0],
+        "delta_iniziale": [-5, -10, -15, 0, -10, -10],
         "answers": [
             {"label": "Introduzione KPI Formazione", "full_text": "Introdurre dei KPI per monitorare le prestazioni durante la formazione e l'efficacia dei dispositivi.", "delta": [5, 15, 15, -15000, 0, 5]},
             {"label": "Sostituzione immediata", "full_text": "Sospendere temporaneamente la sessione e sostituire il dispositivo difettoso con uno funzionante per proseguire in sicurezza.", "delta": [0, 0, 0, -10000, 0, 0]},
