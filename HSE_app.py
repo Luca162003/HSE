@@ -36,9 +36,9 @@ Cordiali saluti,
 Ufficio Risorse Umane""",
         "delta_iniziale": [-25, -25, -5, 0, -15, -10],
         "answers": [
-            {"label": "Riorganizzazione del lavoro (Turni e sequenze)", "full_text": "Ritengo utile intervenire attraverso una ri-organizzazione del lavoro, ridefinendo l’assegnazione dei turni e la sequenza delle operazioni di verifica.", "delta": [25, 25, 5, -5000, 15, 10]},
+            {"label": "Riorganizzazione del lavoro (Turni e sequenze)", "full_text": "Ritengo utile intervenire attraverso una ri-organizzazione del lavoro, ridefinendo l’assegnazione dei turni e la sequenza delle operazioni di verifica.", "delta": [0, 2, 0, -15000, 0, 0]},
             {"label": "Mystery Audit (Controlli a sorpresa)", "full_text": "Suggerisco di introdurre un sistema di Mystery Audit, inviando personale incaricato a svolgere verifiche non annunciate direttamente sul campo.", "delta": [-2, 0, 2, -25000, 0, 0]},
-            {"label": "Commissione d'indagine e Feedback", "full_text": "Propongo di istituire una Commissione di indagine su eventi critici e attivare un sistema di feedback strutturato ai lavoratori.\n", "delta": [0, 2, 0, -15000, 0, 0]},
+            {"label": "Commissione d'indagine e Feedback", "full_text": "Propongo di istituire una Commissione di indagine su eventi critici e attivare un sistema di feedback strutturato ai lavoratori.\n", "delta":[25, 25, 5, -5000, 15, 10]},
             {"label": "Sospensione lavoratori infortunati", "full_text": "Una possibile soluzione potrebbe essere la sospensione temporanea dalla mansione per quei lavoratori che hanno registrato infortuni ricorrenti.", "delta": [-2, 2, 0, 0, 0, 0]}
         ]
     },
@@ -74,10 +74,10 @@ Segnalo questa circostanza per le opportune valutazioni.
 Cordiali saluti""",
         "delta_iniziale": [-10, -15, -10, 0, -10, -20],
         "answers": [
-            {"label": "Discussione in Riunione Periodica", "full_text": "Includere la mancata partecipazione nell'ordine del giorno della prossima riunione periodica per discuterne con i rappresentanti.", "delta": [10, 15, 10, -2000, 10, 20]},
+            {"label": "Discussione in Riunione Periodica", "full_text": "Includere la mancata partecipazione nell'ordine del giorno della prossima riunione periodica per discuterne con i rappresentanti.", "delta": [-5, 0, 0, -2000, 0, 0]},
             {"label": "Safety Walk e confronto", "full_text": "Organizzare una safety walk per esaminare le condizioni e confrontarsi direttamente con i lavoratori sul campo.", "delta": [0, 2, 2, -5000, 0, 0]},
             {"label": "Analisi correlazione Infortuni", "full_text": "Avviare un'analisi dettagliata per esaminare se vi siano correlazioni tra la mancata formazione e gli incidenti verificatisi.", "delta": [0, 2, 0, -2000, 0, 0]},
-            {"label": "Colloqui individuali", "full_text": "Organizzare incontri individuali con ciascun assente per comprendere le ragioni e ribadire l'importanza della formazione.", "delta": [-5, 0, 0, -2000, 0, 0]}
+            {"label": "Colloqui individuali", "full_text": "Organizzare incontri individuali con ciascun assente per comprendere le ragioni e ribadire l'importanza della formazione.", "delta": [10, 15, 10, -2000, 10, 20]}
         ]
     },
     {
@@ -90,8 +90,8 @@ Resto a disposizione per ulteriori informazioni.
 Cordiali saluti,""",
         "delta_iniziale": [-5, -10, -15, 0, -10, -10],
         "answers": [
-            {"label": "Introduzione KPI Formazione", "full_text": "Introdurre dei KPI per monitorare le prestazioni durante la formazione e l'efficacia dei dispositivi.", "delta": [5, 10, 15, -15000, 10, 10]},
-            {"label": "Sostituzione immediata", "full_text": "Sospendere temporaneamente la sessione e sostituire il dispositivo difettoso con uno funzionante per proseguire in sicurezza.", "delta": [-2, 0, 2, -10000, 0, 0]},
+            {"label": "Introduzione KPI Formazione", "full_text": "Introdurre dei KPI per monitorare le prestazioni durante la formazione e l'efficacia dei dispositivi.", "delta": [-2, 0, 2, -10000, 0, 0]},
+            {"label": "Sostituzione immediata", "full_text": "Sospendere temporaneamente la sessione e sostituire il dispositivo difettoso con uno funzionante per proseguire in sicurezza.", "delta": [5, 10, 15, -15000, 10, 10]},
             {"label": "Intervention Cards", "full_text": "Introdurre schede informative su come intervenire in caso di malfunzionamento dei DPI.", "delta": [-5, 0, 5, -10000, 0, 0]},
             {"label": "Organizzazione Safety Day", "full_text": "Organizzare un 'Safety Day' dedicato alla sensibilizzazione e alla gestione delle emergenze sui DPI.", "delta": [-10, 5, 7, -25000, 0, 0]}
         ]
@@ -123,7 +123,7 @@ if not st.session_state.user_name:
     Benvenuto/a in **HSEGAME**, un gioco volto a stimolare e rafforzare le capacità di Leadership in ambito Health, Safety and Environment (HSE). L’obiettivo del gioco è sensibilizzare il giocatore in merito ai processi decisionali insiti alla gestione HSE.
     \nIn questo gioco, ti muoverai in un contesto organizzativo. Ti saranno presentati degli Eventi, ovvero degli eventi avversi «verosimili», che peggiorano o potrebbero peggiorare le prestazioni HSE (ad esempio, bassa partecipazione agli eventi formativi o incidenti di vario tipo). Dovrai comprendere e interpretare le cause di tali Eventi e implementare degli Interventi, ossia delle risposte organizzative «verosimili» volte a risolvere le cause di ogni singolo Evento (ad esempio, attività di sensibilizzazione o modifica delle procedure). Dovrai scegliere l’Intervento che ritieni più adatto a risolvere le cause dell’Evento tra quattro opzioni. Le tue scelte produrranno degli effetti sulla prestazione HSE.
     L’obiettivo del gioco è migliorare la prestazione HSE della tua organizzazione, stimolando due tipologie di comportamento tra i tuoi collaboratori e le tue collaboratrici:
-* Compliance, ossia il rispetto di procedure e istruzioni operative;
+* Strutturazione (compliance), ossia il rispetto di procedure e istruzioni operative;
 * Participation, ossia comportamenti volontari e proattivi per il miglioramento della sicurezza sul luogo di lavoro.
     Tieni presente che le tue scelte influenzeranno anche altre tre statistiche aziendali che è importante preservare: la Soddisfazione del personale, la Produttività aziendale e la Reputazione aziendale.
     \nOra sei pronto/a a giocare!
@@ -257,8 +257,8 @@ else:
             | **PROD** | Produttività |
             | **SODD** | Soddisfazione |
             | **REP** | Reputazione |
-            | **HSE_P** | HSE Partecipazione |
-            | **HSE_C** | HSE Compliance |
+            | **HSE_P** | HSE Partecipazione/coinvolgimento (Participation) |
+            | **HSE_C** | HSE Strutturazione (Compliance) |
             """)
 
     with colB:
